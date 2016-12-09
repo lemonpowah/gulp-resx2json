@@ -1,4 +1,4 @@
-# gulp-resx2jsonjson [![NPM version][npm-image]][npm-url] [![Build status][travis-image]][travis-url]
+# gulp-resx2json [![NPM version][npm-image]][npm-url] [![Build status][travis-image]][travis-url]
 
 > A pure JS `.resx` file converter (XML to JSON) plugin for gulp.
 
