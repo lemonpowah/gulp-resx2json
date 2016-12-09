@@ -1,7 +1,7 @@
 {
   "name": "gulp-resx2json",
   "version": "1.0.0",
-  "description": "A resx to JSON file converter plugin for gulp",
+  "description": "A pure JS `.resx` file converter (XML to JSON) plugin for gulp.",
   "main": "index.js",
   "dependencies": {
     "xmldoc": "^0.5.1",
