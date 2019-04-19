@@ -30,7 +30,11 @@ describe("gulp-resx2", function () {
 			contents: fs.readFileSync("test/fixtures/resource.resx")
 		});
 
-		var stream = resx2(srcFile);
+		var stream = resx2(srcFile, 
+			{
+				resourcePrefix: 'UI_',
+				resourceSeparator: '_'
+			});
 
 		stream.on("error", function(err) {
 			should.exist(err);
