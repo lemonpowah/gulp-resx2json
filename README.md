@@ -1,4 +1,4 @@
-Fork of: gulp-resx2json [![NPM version][npm-image]][npm-url] [![Build status][travis-image]][travis-url]
+Fork of: [gulp-resx2json](https://github.com/toqueteos/gulp-resx2json)
 
 # gulp-resx2react-localize-redux
 
