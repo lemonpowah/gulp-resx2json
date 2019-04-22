@@ -5,7 +5,7 @@ var PluginError = gutil.PluginError;
 var Buffer = require('buffer').Buffer;
 var path = require('path');
 
-const PLUGIN_NAME = "gulp-resx2json";
+const PLUGIN_NAME = "gulp-resx2jreact-localize-redux";
 
 module.exports = function (opt, args) {
   opt = opt || {};
@@ -17,7 +17,7 @@ module.exports = function (opt, args) {
     var resourceObject = {};
     var valueNodes = doc.childrenNamed("data");
 
-    if (!args) {
+    if (!args || args && Object.keys(args).length == 0) {
       valueNodes.forEach(function (element) {
         var name = element.attr.name;
         var value = element.firstChild.val;
@@ -28,26 +28,27 @@ module.exports = function (opt, args) {
       valueNodes.forEach(function (element) {
         var resourceCategory = '';
         var resourceName = '';
-        var resourceValue = {};
+        var resourceValue = '';
 
-        if (args.resourcePrefix && element.attr.name.startsWith(args.resourcePrefix)) {
-          var resourceKey = element.attr.name.replace(args.resourcePrefix, '');
-          if (args.resourceSeparator) {
-            var arrayChunks = resourceKey.split(args.resourceSeparator)
-            if (arrayChunks.length == 2) {
-              if (!arrayChunks[0])
-                return;
-              resourceCategory = arrayChunks[0];
-              resourceName = arrayChunks[1];
-              resourceValue = element.firstChild.val;
-            }
+        var resourceKey = element.attr.name;
+        if (args.resourcePrefix && resourceKey.startsWith(args.resourcePrefix)) {
+          resourceKey = resourceKey.replace(args.resourcePrefix, '');
+        }
+
+        if (args.resourceSeparator) {
+          var arrayChunks = resourceKey.split(args.resourceSeparator)
+          if (arrayChunks.length == 2) {
+            if (!arrayChunks[0])
+              return;
+            resourceCategory = arrayChunks[0];
+            resourceName = arrayChunks[1];
+            resourceValue = element.firstChild.val;
           }
 
-          if (!resourceValue)
-            resourceValue = element.firstChild.val;
-
-          resourceObject[resourceCategory] = resourceObject[resourceCategory] || {};
-          resourceObject[resourceCategory][resourceName] = resourceValue;
+          if (resourceValue) {
+            resourceObject[resourceCategory] = resourceObject[resourceCategory] || {};
+            resourceObject[resourceCategory][resourceName] = resourceValue;
+          }
         }
       });
     }

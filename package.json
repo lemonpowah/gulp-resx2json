@@ -1,7 +1,7 @@
 {
-  "name": "gulp-resx2json",
+  "name": "gulp-resx2react-localize-redux",
   "version": "1.0.1",
-  "description": "A pure JS `.resx` file converter (XML to JSON) plugin for gulp.",
+  "description": "A JS `.resx` file converter (XML to JSON) plugin for gulp.",
   "main": "index.js",
   "dependencies": {
     "xmldoc": "^0.5.1",
@@ -32,7 +32,7 @@
   "author": "Carlos Cobo <toqueteos@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/toqueteos/gulp-resx2json/issues"
+    "url": "https://github.com/lemonpowah/gulp-resx2json/issues"
   },
   "engines": {
     "node": ">=0.10"
