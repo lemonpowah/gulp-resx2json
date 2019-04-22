@@ -1,28 +1,29 @@
-# gulp-resx2json [![NPM version][npm-image]][npm-url] [![Build status][travis-image]][travis-url]
+Fork of: gulp-resx2json [![NPM version][npm-image]][npm-url] [![Build status][travis-image]][travis-url]
 
-> A pure JS `.resx` file converter (XML to JSON) plugin for gulp.
+# gulp-resx2react-localize-redux
 
+Modified the plugin to use with [react-localize-redux](https://github.com/ryandrewjohnson/react-localize-redux). I did this because I want to keep a single entry point for the resource files so API resources and UI resources would come from the same place. This plugin basically builds the resources for the UI project without the need to make an extra web api call to fetch them.
+
+New stuff:
+Ability to provide arguments resource prefix and separator:
+```
+{
+  resourcePrefix: 'UI_',
+  resourceSeparator: '_'
+}
+```
 ## Usage
 
-First, install `gulp-resx2json` as a development dependency:
+Not yet on npm.
 
-```shell
-npm install --save-dev gulp-resx2json
-```
-
-Then, add it to your `gulpfile.js`:
+In your `gulpfile.js`:
 
 ```javascript
-var resx2json = require('gulp-resx2json');
+var resx2json = require('<not-yet-in-npm>');
 
-gulp.task('resources', function(){
+gulp.task('build-resx', function(){
   gulp.src(['resource.resx'])
-    .pipe(resx2json())
+    .pipe(resx2json({resourcePrefix = 'UI_', resourceSeparator = '_'}))
     .pipe(gulp.dest('resources/resource.json'));
 });
 ```
-
-[npm-image]: https://badge.fury.io/js/gulp-resx2json.svg
-[npm-url]: https://npmjs.org/package/gulp-resx2json
-[travis-image]: https://secure.travis-ci.org/toqueteos/gulp-resx2json.svg?branch=master
-[travis-url]: http://travis-ci.org/toqueteos/gulp-resx2json
